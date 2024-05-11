@@ -10,7 +10,7 @@ namespace ApiDevBP.Service.Contract
 {
     public interface IUserService
     {
-        Task<int> SaveUser(UserModelInputDTO user);
+        Task<UserModelOutputDTO> SaveUser(UserModelInputDTO user);
         Task<IEnumerable<UserModelOutputDTO>> GetUsers();
     }
 }
