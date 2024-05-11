@@ -12,5 +12,8 @@ namespace ApiDevBP.Service.Contract
     {
         Task<UserModelOutputDTO> SaveUser(UserModelInputDTO user);
         Task<IEnumerable<UserModelOutputDTO>> GetUsers();
+        Task<UserModelOutputDTO> GetUserById(int id);
+        Task<UserModelOutputDTO> UpdateUser(UserModelInputDTO inUser);
+        Task DeleteUser(int id);
     }
 }
