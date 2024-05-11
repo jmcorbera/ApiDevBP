@@ -11,6 +11,6 @@ namespace ApiDevBP.Business.Contract
     public interface IUserBusiness
     {
         Task<int> SaveUser(UserModelInputDTO user);
-        Task<IEnumerable<UserModelOutputDTO>> DeleteUser();
+        Task<IEnumerable<UserModelOutputDTO>> GetUsers();
     }
 }
