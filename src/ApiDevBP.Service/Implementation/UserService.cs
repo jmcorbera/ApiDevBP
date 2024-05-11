@@ -88,8 +88,8 @@ namespace ApiDevBP.Service.Implementation
             {
                 var userModel = await _userDataAccess.GetUserById(user.Id) ?? throw new Exception("User Not Found");
 
-                userModel.Name = userModel.Name;
-                userModel.Lastname = userModel.Lastname;
+                userModel.Name = user.Name;
+                userModel.Lastname = user.Lastname;
 
                 var userUpdated = await _userDataAccess.UpdateUser(userModel);
                 return _mapper.Map<UserModelOutputDTO>(userUpdated);
