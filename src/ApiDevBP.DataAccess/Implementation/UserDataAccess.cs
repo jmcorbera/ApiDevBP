@@ -29,6 +29,18 @@ namespace ApiDevBP.DataAccess.Implementation
             _db = new SQLiteAsyncConnection(localDb);
             _db.CreateTableAsync<UserEntity>();
         }
+
+        public async Task DeleteUser(int id)
+        {
+            await _db.DeleteAsync<UserEntity>(id);
+        }
+
+        public async Task<UserEntity> GetUserById(int id)
+        {
+            var user = await _db.Table<UserEntity>().Where(u => u.Id == id).FirstOrDefaultAsync();
+            return user;
+        }
+
         public async Task<IEnumerable<UserEntity>> GetUsers()
         {
             var users = await _db.Table<UserEntity>().ToListAsync();
@@ -39,6 +51,12 @@ namespace ApiDevBP.DataAccess.Implementation
         {
             await _db.InsertAsync(user);
             return await _db.GetAsync<UserEntity>(user.Id);
+        }
+
+        public async Task<UserEntity> UpdateUser(UserEntity userEntity)
+        {
+            await _db.UpdateAsync(userEntity);
+            return userEntity;
         }
     }
 }

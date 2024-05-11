@@ -13,5 +13,8 @@ namespace ApiDevBP.DataAccess.Contract
     {
         Task<UserEntity> SaveUser(UserEntity user);
         Task<IEnumerable<UserEntity>> GetUsers();
+        Task<UserEntity> GetUserById(int id);
+        Task<UserEntity> UpdateUser(UserEntity userEntity);
+        Task DeleteUser(int id);
     }
 }
