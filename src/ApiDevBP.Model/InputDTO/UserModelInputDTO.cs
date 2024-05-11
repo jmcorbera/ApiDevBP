@@ -8,6 +8,7 @@ namespace ApiDevBP.Model.InputDTO
 {
     public class UserModelInputDTO
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Lastname { get; set; }
     }

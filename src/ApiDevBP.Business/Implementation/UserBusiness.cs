@@ -19,6 +19,16 @@ namespace ApiDevBP.Business.Implementation
             _userService = userService ?? throw new ArgumentNullException(nameof(userService));
         }
 
+        public Task DeleteUser(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<UserModelOutputDTO> GetUserById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<IEnumerable<UserModelOutputDTO>> GetUsers()
         {
             return await _userService.GetUsers();
@@ -27,6 +37,11 @@ namespace ApiDevBP.Business.Implementation
         public async Task<UserModelOutputDTO> SaveUser(UserModelInputDTO user)
         {
             return await _userService.SaveUser(user);
+        }
+
+        public Task<UserModelOutputDTO> UpdateUser(UserModelInputDTO inUser)
+        {
+            throw new NotImplementedException();
         }
     }
 }
