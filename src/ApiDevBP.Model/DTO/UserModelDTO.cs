@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ApiDevBP.Model.DTO
 {
-    internal class UserModelDTO
+    public class UserModelDTO
     {
     }
 }
