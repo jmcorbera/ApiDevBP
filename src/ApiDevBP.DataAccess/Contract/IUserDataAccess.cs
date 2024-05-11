@@ -1,4 +1,5 @@
-﻿using ApiDevBP.Model.InputDTO;
+﻿using ApiDevBP.DataAccess.Entities;
+using ApiDevBP.Model.InputDTO;
 using ApiDevBP.Model.OutputDTO;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace ApiDevBP.DataAccess.Contract
 {
     public interface IUserDataAccess
     {
-        Task<int> SaveUser(UserModelInputDTO user);
-        Task<IEnumerable<UserModelOutputDTO>> GetUsers();
+        Task<int> SaveUser(UserEntity user);
+        Task<IEnumerable<UserEntity>> GetUsers();
     }
 }

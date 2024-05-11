@@ -29,12 +29,12 @@ namespace ApiDevBP.DataAccess.Implementation
             _db = new SQLiteAsyncConnection(localDb);
             _db.CreateTableAsync<UserEntity>();
         }
-        public Task<IEnumerable<UserModelOutputDTO>> GetUsers()
+        public Task<IEnumerable<UserEntity>> GetUsers()
         {
             throw new NotImplementedException();
         }
 
-        public Task<int> SaveUser(UserModelInputDTO user)
+        public Task<int> SaveUser(UserEntity user)
         {
             throw new NotImplementedException();
         }
