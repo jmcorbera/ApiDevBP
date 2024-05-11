@@ -24,7 +24,7 @@ namespace ApiDevBP.Business.Implementation
             return await _userService.GetUsers();
         }
 
-        public async Task<int> SaveUser(UserModelInputDTO user)
+        public async Task<UserModelOutputDTO> SaveUser(UserModelInputDTO user)
         {
             return await _userService.SaveUser(user);
         }
