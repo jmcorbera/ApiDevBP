@@ -1,4 +1,5 @@
-﻿using ApiDevBP.Models;
+﻿using ApiDevBP.Model.InputDTO;
+using ApiDevBP.Model.OutputDTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace ApiDevBP.Business.Contract
 {
     public interface IUserBusiness
     {
-        Task<int> SaveUser();
-        Task<IEnumerable<UserModel>> DeleteUser();
+        Task<int> SaveUser(UserModelInputDTO user);
+        Task<IEnumerable<UserModelOutputDTO>> DeleteUser();
     }
 }
