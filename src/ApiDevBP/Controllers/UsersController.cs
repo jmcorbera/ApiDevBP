@@ -1,8 +1,6 @@
 using ApiDevBP.Business.Contract;
 using ApiDevBP.Business.Implementation;
-using ApiDevBP.Entities;
 using ApiDevBP.Model.InputDTO;
-using ApiDevBP.Models;
 using Microsoft.AspNetCore.Mvc;
 using SQLite;
 using System.Reflection;
@@ -32,7 +30,7 @@ namespace ApiDevBP.Controllers
         [HttpGet]
         public async Task<IActionResult> GetUsers()
         {
-            var users = _userBusiness.GetUsers();
+            var users = await _userBusiness.GetUsers();
             if (users != null)
             {
                 return Ok(users);
