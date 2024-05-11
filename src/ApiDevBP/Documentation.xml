@@ -4,5 +4,77 @@
         <name>ApiDevBP</name>
     </assembly>
     <members>
+        <member name="T:ApiDevBP.Controllers.UsersController">
+            <summary>
+            User endpoints
+            </summary>
+        </member>
+        <member name="M:ApiDevBP.Controllers.UsersController.SaveUser(ApiDevBP.Model.InputDTO.UserModelInputDTO)">
+             <summary>
+             Method used to add new user
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST 
+                 {
+                    "name": "name",
+                    "lastname": "lastname"
+                 }
+            
+             </remarks>
+             <param name="user"></param>
+             <returns></returns>
+             <response code="200">When the response is Success</response>
+             <response code="400">When the method has Bad Request</response>
+        </member>
+        <member name="M:ApiDevBP.Controllers.UsersController.GetUsers">
+            <summary>
+            Method used to get all users
+            </summary>
+            <returns></returns>
+            <response code="200">When the response is Success</response>
+            <response code="400">When the method has Bad Request </response>
+            <response code="404">Users not found</response>
+        </member>
+        <member name="M:ApiDevBP.Controllers.UsersController.GetUserById(System.Int32)">
+            <summary>
+            Method used to get user by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+            <response code="200">When the response is Success</response>
+            <response code="400">When the method has Bad Request </response>
+            <response code="404">User not found</response>
+        </member>
+        <member name="M:ApiDevBP.Controllers.UsersController.UpdateUser(ApiDevBP.Model.InputDTO.UserModelInputDTO)">
+             <summary>
+             Method used to update user
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 PUT 
+                 {
+                    "id": 0,
+                    "name": "name",
+                    "lastname": "lastname"
+                 }
+            
+             </remarks>
+             <param name="user"></param>
+             <returns></returns>
+             <response code="200">When the response is Success</response>
+             <response code="400">When the method has Bad Request </response>
+        </member>
+        <member name="M:ApiDevBP.Controllers.UsersController.DeleteUser(System.Int32)">
+            <summary>
+            Method used to delete user
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+            <response code="200">When the response is Success</response>
+            <response code="400">When the method has Bad Request </response>
+        </member>
     </members>
 </doc>
