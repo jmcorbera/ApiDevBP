@@ -29,14 +29,16 @@ namespace ApiDevBP.DataAccess.Implementation
             _db = new SQLiteAsyncConnection(localDb);
             _db.CreateTableAsync<UserEntity>();
         }
-        public Task<IEnumerable<UserEntity>> GetUsers()
+        public async Task<IEnumerable<UserEntity>> GetUsers()
         {
-            throw new NotImplementedException();
+            var users = await _db.Table<UserEntity>().ToListAsync();
+            return users;
         }
 
-        public Task<int> SaveUser(UserEntity user)
+        public async Task<UserEntity> SaveUser(UserEntity user)
         {
-            throw new NotImplementedException();
+            await _db.InsertAsync(user);
+            return await _db.GetAsync<UserEntity>(user.Id);
         }
     }
 }

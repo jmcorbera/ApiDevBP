@@ -11,7 +11,7 @@ namespace ApiDevBP.DataAccess.Contract
 {
     public interface IUserDataAccess
     {
-        Task<int> SaveUser(UserEntity user);
+        Task<UserEntity> SaveUser(UserEntity user);
         Task<IEnumerable<UserEntity>> GetUsers();
     }
 }
