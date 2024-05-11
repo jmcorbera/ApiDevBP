@@ -1,4 +1,7 @@
+using ApiDevBP.Business.Contract;
+using ApiDevBP.Business.Implementation;
 using ApiDevBP.Entities;
+using ApiDevBP.Model.InputDTO;
 using ApiDevBP.Models;
 using Microsoft.AspNetCore.Mvc;
 using SQLite;
@@ -9,41 +12,30 @@ namespace ApiDevBP.Controllers
     [ApiController]
     [Route("[controller]")]
     public class UsersController : ControllerBase
-    {
-        private readonly  SQLiteConnection _db;
-        
+    {   
         private readonly ILogger<UsersController> _logger;
 
-        public UsersController(ILogger<UsersController> logger)
+        private readonly IUserBusiness _userBusiness;
+
+        public UsersController(IUserBusiness userBusiness, ILogger<UsersController> logger)
         {
             _logger = logger;
-            string localDb = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), "localDb");
-            _db = new SQLiteConnection(localDb);
-            _db.CreateTable<UserEntity>();
+            _userBusiness = userBusiness;
         }
 
         [HttpPost]
-        public async Task<IActionResult> SaveUser(UserModel user)
+        public async Task<IActionResult> SaveUser(UserModelInputDTO user)
         {
-            var result = _db.Insert(new UserEntity()
-            {
-                Name = user.Name,
-                Lastname = user.Lastname
-            });
-            return Ok(result > 0);
+            return Ok(await _userBusiness.SaveUser(user));
         }
 
         [HttpGet]
         public async Task<IActionResult> GetUsers()
         {
-            var users = _db.Query<UserEntity>($"Select * from Users");
+            var users = _userBusiness.GetUsers();
             if (users != null)
             {
-                return Ok(users.Select(x=> new UserModel()
-                {
-                    Name = x.Name,
-                    Lastname = x.Lastname
-                }));
+                return Ok(users);
             }
             return NotFound();
         }
