@@ -1,6 +1,7 @@
 ﻿using ApiDevBP.Business.Contract;
 using ApiDevBP.Model.InputDTO;
 using ApiDevBP.Model.OutputDTO;
+using ApiDevBP.Service.Contract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,14 +12,21 @@ namespace ApiDevBP.Business.Implementation
 {
     public class UserBusiness : IUserBusiness
     {
-        public Task<IEnumerable<UserModelOutputDTO>> GetUsers()
+        private readonly IUserService _userService;
+
+        public UserBusiness(IUserService userService) 
         {
-            throw new NotImplementedException();
+            _userService = userService ?? throw new ArgumentNullException(nameof(userService));
         }
 
-        public Task<int> SaveUser(UserModelInputDTO user)
+        public async Task<IEnumerable<UserModelOutputDTO>> GetUsers()
         {
-            throw new NotImplementedException();
+            return await _userService.GetUsers();
+        }
+
+        public async Task<int> SaveUser(UserModelInputDTO user)
+        {
+            return await _userService.SaveUser(user);
         }
     }
 }

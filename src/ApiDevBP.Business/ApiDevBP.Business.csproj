@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ApiDevBP.Model\ApiDevBP.Model.csproj" />
+    <ProjectReference Include="..\ApiDevBP.Service\ApiDevBP.Service.csproj" />
   </ItemGroup>
 
 </Project>
